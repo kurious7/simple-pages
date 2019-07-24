@@ -1,4 +1,5 @@
 <?php
+
 namespace Kurious7\SimplePages;
 
 use Illuminate\Support\Facades\Route;
@@ -12,7 +13,7 @@ class SimplePagesServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views/', 'simple-pages');
 
         $this->publishes([
-                __DIR__.'/../resources/views/' => resource_path('views/vendor/simple-pages')
+                __DIR__.'/../resources/views/' => resource_path('views/vendor/simple-pages'),
             ], 'views');
 
         $this->publishes([
@@ -21,7 +22,7 @@ class SimplePagesServiceProvider extends ServiceProvider
 
         if (! class_exists('CreateSimplePagesTable')) {
             $this->publishes([
-                __DIR__.'/../database/migrations/create_simple_pages_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_simple_pages_table.php')
+                __DIR__.'/../database/migrations/create_simple_pages_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_simple_pages_table.php'),
             ], 'migrations');
         }
 

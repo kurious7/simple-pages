@@ -1,4 +1,5 @@
 <?php
+
 namespace Kurious7\SimplePages\Tests;
 
 use Kurious7\SimplePages\Models\SimplePage;
@@ -10,7 +11,7 @@ class ViewPageTest extends TestCase
     {
         $page = SimplePage::create([
             'title' => 'Dial Home',
-            'public' => true
+            'public' => true,
         ]);
 
         $this->get('/p/dial-home')
@@ -24,7 +25,7 @@ class ViewPageTest extends TestCase
     {
         $page = SimplePage::create([
             'title' => 'Dial Home',
-            'public' => false
+            'public' => false,
         ]);
 
         $this->get('/p/dial-home')

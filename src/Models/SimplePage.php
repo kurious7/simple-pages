@@ -1,4 +1,5 @@
 <?php
+
 namespace Kurious7\SimplePages\Models;
 
 use Carbon\Carbon;
@@ -19,7 +20,7 @@ class SimplePage extends Model
         'show_in_menu',
         'public',
         'public_from',
-        'public_until'
+        'public_until',
     ];
 
     protected $casts = [
@@ -50,7 +51,7 @@ class SimplePage extends Model
     }
 
     /**
-     * Attributes
+     * Attributes.
      */
     protected function getIsPublicAttribute()
     {
@@ -65,7 +66,7 @@ class SimplePage extends Model
     }
 
     /**
-     * Scopes
+     * Scopes.
      */
     public function scopeVisibleInMenu($query)
     {
