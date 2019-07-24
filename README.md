@@ -1,5 +1,9 @@
 # Simple Pages
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kurious7/simple-pages.svg?style=flat-square)](https://packagist.org/packages/kurious7/simple-pages)
+[![Build Status](https://img.shields.io/travis/com/kurious7/simple-pages/master.svg?style=flat-square)](https://travis-ci.com/kurious7/simple-pages)
+[![Quality Score](https://img.shields.io/scrutinizer/quality/g/kurious7/simple-pages.svg?style=flat-square)](https://scrutinizer-ci.com/g/kurious7/simple-pages)
+
 A [Laravel](http://laravel.com/docs/master) package designed to add pages to your Laravel application.  A page is just
 **content** defined by specific URL, or **slug**.  A page may or may not be **published**.
 
