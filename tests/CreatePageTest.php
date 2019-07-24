@@ -1,4 +1,5 @@
 <?php
+
 namespace Kurious7\SimplePages\Tests;
 
 use Kurious7\SimplePages\Models\SimplePage;

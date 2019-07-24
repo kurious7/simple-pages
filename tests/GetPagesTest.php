@@ -1,4 +1,5 @@
 <?php
+
 namespace Kurious7\SimplePages\Tests;
 
 use Carbon\Carbon;
@@ -24,45 +25,45 @@ class GetPagesTest extends TestCase
     {
         $nonPublicPage = SimplePage::create([
             'title' => 'Hello, Non public page',
-            'public' => false
+            'public' => false,
         ]);
         $nonPublicWithDatePage = SimplePage::create([
             'title' => 'Hello, Non public page',
             'public' => false,
             'public_from' => (new Carbon)->subDays(5),
-            'public_until' => (new Carbon)->addDays(5)
+            'public_until' => (new Carbon)->addDays(5),
         ]);
         $alwaysPublicPage = SimplePage::create([
             'title' => 'Hello, Hard public page',
-            'public' => true
+            'public' => true,
         ]);
         $fromDatePublicPage = SimplePage::create([
             'title' => 'Hello, Public from date page',
             'public' => true,
-            'public_from' => (new Carbon)->subDays(5)
+            'public_from' => (new Carbon)->subDays(5),
         ]);
         $untilDatePublicPage = SimplePage::create([
             'title' => 'Hello, Public until date page',
             'public' => true,
-            'public_until' => (new Carbon)->addDays(5)
+            'public_until' => (new Carbon)->addDays(5),
         ]);
         $betweenFromAndUntilDatePublicPage = SimplePage::create([
             'title' => 'Hello, Public from date until date page',
             'public' => true,
             'public_from' => (new Carbon)->subDays(5),
-            'public_until' => (new Carbon)->addDays(5)
+            'public_until' => (new Carbon)->addDays(5),
         ]);
         $pastDateNonPublicPage = SimplePage::create([
             'title' => 'Hello, Non public past page',
             'public' => true,
             'public_from' => (new Carbon)->subDays(15),
-            'public_until' => (new Carbon)->subDays(5)
+            'public_until' => (new Carbon)->subDays(5),
         ]);
         $futureDateNonPublicPage = SimplePage::create([
             'title' => 'Hello, Non public future page',
             'public' => true,
             'public_from' => (new Carbon)->addDays(5),
-            'public_until' => (new Carbon)->addDays(15)
+            'public_until' => (new Carbon)->addDays(15),
         ]);
 
         $publicPages = SimplePage::published()->get();

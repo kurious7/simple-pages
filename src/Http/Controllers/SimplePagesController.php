@@ -14,7 +14,7 @@ class SimplePagesController extends Controller
                 ->where('slug', $slug)
                 ->first();
 
-        if (!$page) {
+        if (! $page) {
             return abort(404);
         }
 
