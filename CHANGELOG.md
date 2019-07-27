@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.0.3] - 2019-07-27
+### Added
+- Add a SimplePage Model without auto slug
+
 ## [1.0.2] - 2019-07-27
 ### Added
 - Add the ability to disable automatic route registration #2

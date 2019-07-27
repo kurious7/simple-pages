@@ -3,17 +3,14 @@
 namespace Kurious7\SimplePages\Models;
 
 use Carbon\Carbon;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
 
-class SimplePage extends Model implements SimplePageContract
+class SimplePageNoAutoSlug extends Model implements SimplePageContract
 {
-    use HasSlug,
-        SoftDeletes;
+    use SoftDeletes;
 
     protected $fillable = [
         'title',
@@ -45,21 +42,15 @@ class SimplePage extends Model implements SimplePageContract
         $this->table = config('simple-pages.table', 'pages');
     }
 
-    public function getSlugOptions() : SlugOptions
-    {
-        return SlugOptions::create()
-            ->generateSlugsFrom('title')
-            ->saveSlugsTo('slug');
-    }
-
     /**
      * Attributes.
      */
     protected function getIsPublicAttribute()
     {
-        if ($this->public == 1 ||
-            ($this->public_from && $this->public_from < new Carbon()) ||
-            ($this->public_until && $this->public_until > new Carbon())
+        if (
+            $this->public == 1
+            || ($this->public_from && $this->public_from < new Carbon())
+            || ($this->public_until && $this->public_until > new Carbon())
         ) {
             return true;
         }
@@ -84,9 +75,9 @@ class SimplePage extends Model implements SimplePageContract
                 $query->where(function ($query) use ($today) {
                     $query->whereDate('public_from', '<=', $today)->orWhereNull('public_from');
                 })
-                ->where(function ($query) use ($today) {
-                    $query->whereDate('public_until', '>=', $today)->orWhereNull('public_until');
-                });
+                    ->where(function ($query) use ($today) {
+                        $query->whereDate('public_until', '>=', $today)->orWhereNull('public_until');
+                    });
             });
     }
 }

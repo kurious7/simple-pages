@@ -3,7 +3,10 @@
 namespace Kurious7\SimplePages;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Kurious7\SimplePages\Models\SimplePage as SimplePageModel;
+use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
 use Kurious7\SimplePages\Http\Controllers\SimplePagesController;
 
 class SimplePagesServiceProvider extends ServiceProvider
@@ -34,5 +37,25 @@ class SimplePagesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/simple-pages.php', 'simple-pages');
+    }
+
+    public static function determineSimplePageModel(): string
+    {
+        $simplePageModel = config('simpel-pages.model') ?? SimplePageModel::class;
+
+        if (!is_a($simplePageModel, SimplePage::class, true)
+            || !is_a($simplePageModel, Model::class, true)
+        ) {
+            throw InvalidConfiguration::modelIsNotValid($simplePageModel);
+        }
+
+        return $simplePageModel;
+    }
+
+    public static function getSimplePageModelInstance(): SimplePageContract
+    {
+        $simplePageModelClassName = self::determineSimplePageModel();
+
+        return new $simplePageModelClassName();
     }
 }
