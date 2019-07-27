@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Kurious7\SimplePages\Models\SimplePage as SimplePageModel;
-use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
 use Kurious7\SimplePages\Http\Controllers\SimplePagesController;
+use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
 
 class SimplePagesServiceProvider extends ServiceProvider
 {
@@ -43,8 +43,8 @@ class SimplePagesServiceProvider extends ServiceProvider
     {
         $simplePageModel = config('simpel-pages.model') ?? SimplePageModel::class;
 
-        if (!is_a($simplePageModel, SimplePage::class, true)
-            || !is_a($simplePageModel, Model::class, true)
+        if (! is_a($simplePageModel, SimplePage::class, true)
+            || ! is_a($simplePageModel, Model::class, true)
         ) {
             throw InvalidConfiguration::modelIsNotValid($simplePageModel);
         }
