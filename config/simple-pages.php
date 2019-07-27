@@ -4,7 +4,7 @@ return [
     'table' => 'pages',
     'route' => [
         'path' => '/p/{slug}',
-        'register' => false,
+        'register' => true,
     ],
-    'view' => 'simple-pages::default',
+    'view' => 'simple-pages::index',
 ];

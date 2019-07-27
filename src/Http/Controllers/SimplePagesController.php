@@ -18,7 +18,7 @@ class SimplePagesController extends Controller
             return abort(404);
         }
 
-        return view('simple-pages::index', [
+        return view(config('simple-pages.view'), [
             'page' => $page,
         ]);
     }
