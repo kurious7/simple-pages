@@ -26,7 +26,7 @@ class SimplePagesServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        if(config('simple-pages.route.register')) {
+        if (config('simple-pages.route.register')) {
             Route::get(config('simple-pages.route.path'), SimplePagesController::class);
         }
     }
