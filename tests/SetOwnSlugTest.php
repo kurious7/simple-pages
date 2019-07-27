@@ -4,7 +4,7 @@ namespace Kurious7\SimplePages\Tests;
 
 use Kurious7\SimplePages\Models\SimplePage;
 
-class CustomModelTest extends TestCase
+class SetOwnSlugTest extends TestCase
 {
     protected function getEnvironmentSetUp($app)
     {
