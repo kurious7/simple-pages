@@ -2,6 +2,9 @@
 
 return [
     'table' => 'pages',
-    'route' => '/p/{slug}',
+    'route' => [
+        'path' => '/p/{slug}',
+        'register' => false,
+    ],
     'view' => 'simple-pages::default',
 ];
