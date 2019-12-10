@@ -3,8 +3,8 @@
 namespace Kurious7\SimplePages\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
 
