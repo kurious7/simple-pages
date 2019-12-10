@@ -3,12 +3,12 @@
 namespace Kurious7\SimplePages\Models;
 
 use Carbon\Carbon;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class SimplePage extends Model implements SimplePageContract
 {

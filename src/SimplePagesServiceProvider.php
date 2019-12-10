@@ -2,12 +2,12 @@
 
 namespace Kurious7\SimplePages;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Kurious7\SimplePages\Models\SimplePage as SimplePageModel;
-use Kurious7\SimplePages\Http\Controllers\SimplePagesController;
 use Kurious7\SimplePages\Contracts\SimplePage as SimplePageContract;
+use Kurious7\SimplePages\Http\Controllers\SimplePagesController;
+use Kurious7\SimplePages\Models\SimplePage as SimplePageModel;
 
 class SimplePagesServiceProvider extends ServiceProvider
 {
